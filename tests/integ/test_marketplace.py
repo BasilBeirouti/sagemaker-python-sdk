@@ -236,10 +236,10 @@ def iris_image(sagemaker_session):
             print("upload docker image to ECR repo failed")
             pass
 
-    yield ecr_image
+    return ecr_image
 
     # Delete repository after the marketplace integration tests complete
-    _delete_repository(ecr_client, algorithm_name)
+    #_delete_repository(ecr_client, algorithm_name)
 
 
 def test_create_model_package(sagemaker_session, boto_session, iris_image):
