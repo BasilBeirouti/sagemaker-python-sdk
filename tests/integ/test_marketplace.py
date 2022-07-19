@@ -222,7 +222,7 @@ def iris_image(sagemaker_session):
     print("BASIL HELLO", ecr_image, ecr_client, algorithm_name)
 
     # Retry docker image push
-    for _ in retries(3, "Upload docker image to ECR repo", seconds_to_sleep=10):
+    for _ in retries(1, "Upload docker image to ECR repo", seconds_to_sleep=10):
         try:
             ans = docker_client.images.push(
                 ecr_image, auth_config={"username": username, "password": password}
